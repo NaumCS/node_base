@@ -1,0 +1,30 @@
+{
+  "name": "vita-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mariadb": "^2.5.4",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "nodemailer": "^6.6.3",
+    "nodemon": "^2.0.12",
+    "sequelize": "^6.6.5",
+    "lodash": "^4.17.20",
+    "moment": "^2.26.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.4.1"
+  }
+}
