@@ -1,19 +1,16 @@
 const dotenv = require('dotenv');
 dotenv.config();
 require('./database');
+
 const express = require('express');
 const cors = require('cors');
 const routes = require('./routes/apiRoutes');
 const userRoutes = require('./routes/userRoutes');
-const animalRoutes = require('./routes/animalRoutes');
 const tokenRoutes = require('./routes/tokenRoutes');
 
 const app = express();
-
 app.use(express.urlencoded({ extended: true }));
-
 app.use(express.json());
-
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Credentials", "true");
@@ -22,11 +19,8 @@ app.use((req, res, next) => {
     app.use(cors());
     next();
 });
-
 app.use(routes);
 app.use('/token', tokenRoutes);
-app.use('/animals', animalRoutes);
 app.use('/users', userRoutes);
-
 
 module.exports = app;

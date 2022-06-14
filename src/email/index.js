@@ -1,7 +1,6 @@
 const nodemailer = require("nodemailer");
 const STPM_CONFIG = require('../config/smtp');
 
-//async function send_email(from, emails, subject, text, html){
 async function send_email(mail){
   try{
     let transporter = nodemailer.createTransport({
@@ -9,7 +8,6 @@ async function send_email(mail){
       port: STPM_CONFIG.port,
       secure: false,
       auth: {
-        //type: 'OAuth2',
         user: STPM_CONFIG.user,
         pass: STPM_CONFIG.pass, 
       },
@@ -17,7 +15,6 @@ async function send_email(mail){
           rejectUnauthorized: false
       }
     });
-
     let mailSent = await transporter.sendMail({
     from: mail.from, 
     to: mail.to, 
@@ -25,12 +22,9 @@ async function send_email(mail){
     text: mail.text, 
     html: mail.html, 
     });
-
     console.log(mailSent)
     return mailSent;
     }catch(e){
-      console.log(e)
-      //return res.status(400).json({ erro: e})
-    
+      console.log(e)    
 }}
 module.exports = send_email;
